@@ -128,7 +128,7 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
           </div>
 
           {/* Content */}
-          <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
+          <div className="flex flex-col justify-center p-6 sm:p-8 md:p-12 lg:p-16">
             {/* Tag */}
             <div className="mb-5">
               <span

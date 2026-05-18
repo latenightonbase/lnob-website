@@ -63,29 +63,29 @@ const partnerLogos: { name: string; logo: React.ReactNode }[] = [
   {
     name: "Base",
     logo: (
-      <div className="flex items-center gap-3">
-        <svg className="w-9 h-9" viewBox="0 0 111 111" fill="currentColor">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <svg className="w-7 h-7 sm:w-9 sm:h-9 shrink-0" viewBox="0 0 111 111" fill="currentColor">
           <path d="M54.921 110.034C85.359 110.034 110.034 85.402 110.034 55.017C110.034 24.6319 85.359 0 54.921 0C26.0432 0 2.35281 22.1714 0 50.3923H72.8467V59.6416H0C2.35281 87.8625 26.0432 110.034 54.921 110.034Z" />
         </svg>
-        <span className="text-2xl font-semibold tracking-tight">Base</span>
+        <span className="text-lg sm:text-2xl font-semibold tracking-tight">Base</span>
       </div>
     ),
   },
   {
     name: "Coinbase",
     logo: (
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         {CoinbaseMark}
-        <span className="text-2xl font-semibold tracking-tight">Coinbase</span>
+        <span className="text-lg sm:text-2xl font-semibold tracking-tight">Coinbase</span>
       </div>
     ),
   },
   {
     name: "Coinbase Ventures",
     logo: (
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         {CoinbaseMark}
-        <span className="text-xl font-semibold tracking-tight whitespace-nowrap">
+        <span className="text-sm sm:text-xl font-semibold tracking-tight text-center sm:whitespace-nowrap leading-tight">
           Coinbase Ventures
         </span>
       </div>
@@ -94,8 +94,8 @@ const partnerLogos: { name: string; logo: React.ReactNode }[] = [
   {
     name: "Optimism",
     logo: (
-      <div className="flex items-center gap-3">
-        <svg className="w-8 h-8" viewBox="0 0 48 48">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" viewBox="0 0 48 48">
           <circle cx="24" cy="24" r="24" fill="#FF0420" />
           <path
             d="M16.4 30.4c-1.86 0-3.36-.44-4.52-1.32-1.13-.9-1.7-2.18-1.7-3.84 0-.34.04-.78.12-1.32.22-1.22.54-2.66 1-4.34 1.28-3.46 3.84-5.18 7.7-5.18 1.05 0 2 .18 2.84.54.85.32 1.52.86 2.02 1.6.5.72.74 1.6.74 2.62 0 .32-.04.76-.13 1.32-.27 1.45-.6 2.92-1 4.4-.66 1.92-1.6 3.36-2.84 4.32-1.22.94-2.72 1.42-4.5 1.42z"
@@ -106,28 +106,28 @@ const partnerLogos: { name: string; logo: React.ReactNode }[] = [
             fill="#fff"
           />
         </svg>
-        <span className="text-2xl font-semibold tracking-tight">Optimism</span>
+        <span className="text-lg sm:text-2xl font-semibold tracking-tight">Optimism</span>
       </div>
     ),
   },
   {
     name: "Farcaster",
     logo: (
-      <div className="flex items-center gap-3">
-        <svg className="w-8 h-8" viewBox="0 0 1000 1000" fill="currentColor">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" viewBox="0 0 1000 1000" fill="currentColor">
           <path d="M257.778 155.556H742.222V844.444H671.111V528.889H670.414C662.554 441.677 589.258 373.333 500 373.333C410.742 373.333 337.446 441.677 329.586 528.889H328.889V844.444H257.778V155.556Z" />
           <path d="M128.889 253.333L157.778 351.111H182.222V746.667C169.949 746.667 160 756.616 160 768.889V795.556H155.556C143.283 795.556 133.333 805.505 133.333 817.778V844.444H382.222V817.778C382.222 805.505 372.273 795.556 360 795.556H355.556V768.889C355.556 756.616 345.606 746.667 333.333 746.667H306.667V253.333H128.889Z" />
           <path d="M693.333 746.667C681.06 746.667 671.111 756.616 671.111 768.889V795.556H666.667C654.394 795.556 644.444 805.505 644.444 817.778V844.444H893.333V817.778C893.333 805.505 883.384 795.556 871.111 795.556H866.667V768.889C866.667 756.616 856.717 746.667 844.444 746.667V351.111H868.889L897.778 253.333H720V746.667H693.333Z" />
         </svg>
-        <span className="text-2xl font-semibold tracking-tight">Farcaster</span>
+        <span className="text-lg sm:text-2xl font-semibold tracking-tight">Farcaster</span>
       </div>
     ),
   },
   {
     name: "Ethereum",
     logo: (
-      <div className="flex items-center gap-3">
-        <svg className="w-7 h-9" viewBox="0 0 256 417" fill="currentColor">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <svg className="w-6 h-8 sm:w-7 sm:h-9 shrink-0" viewBox="0 0 256 417" fill="currentColor">
           <path d="M127.96 0l-2.8 9.5v275.66l2.8 2.8 127.96-75.64L127.96 0z" fillOpacity="0.7" />
           <path d="M127.96 0L0 212.32l127.96 75.64V154.16z" />
           <path d="M127.96 312.19l-1.58 1.93v98.2l1.58 4.6L256 236.58z" fillOpacity="0.7" />
@@ -135,31 +135,31 @@ const partnerLogos: { name: string; logo: React.ReactNode }[] = [
           <path d="M127.96 287.96l127.96-75.64-127.96-58.16z" fillOpacity="0.4" />
           <path d="M0 212.32l127.96 75.64v-133.8z" fillOpacity="0.85" />
         </svg>
-        <span className="text-2xl font-semibold tracking-tight">Ethereum</span>
+        <span className="text-lg sm:text-2xl font-semibold tracking-tight">Ethereum</span>
       </div>
     ),
   },
   {
     name: "Aerodrome",
     logo: (
-      <div className="flex items-center gap-3">
-        <svg className="w-8 h-8" viewBox="0 0 48 48" fill="currentColor">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <svg className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" viewBox="0 0 48 48" fill="currentColor">
           <path d="M24 4 4 40h11l9-16 9 16h11L24 4z" />
         </svg>
-        <span className="text-2xl font-semibold tracking-tight">Aerodrome</span>
+        <span className="text-lg sm:text-2xl font-semibold tracking-tight">Aerodrome</span>
       </div>
     ),
   },
   {
     name: "Solana",
     logo: (
-      <div className="flex items-center gap-3">
-        <svg className="w-9 h-7" viewBox="0 0 397 311" fill="currentColor">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <svg className="w-8 h-6 sm:w-9 sm:h-7 shrink-0" viewBox="0 0 397 311" fill="currentColor">
           <path d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z" />
           <path d="M64.6 3.8C67.1 1.4 70.4 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z" />
           <path d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z" />
         </svg>
-        <span className="text-2xl font-semibold tracking-tight">Solana</span>
+        <span className="text-lg sm:text-2xl font-semibold tracking-tight">Solana</span>
       </div>
     ),
   },
@@ -198,7 +198,7 @@ export default function SocialProof() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 mb-24 pb-24 border-b border-border/50"
+          className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-12 gap-y-5 sm:gap-y-6 mb-24 pb-24 border-b border-border/50"
         >
           <span className="text-[12px] text-foreground/75 uppercase tracking-[0.22em] font-semibold">
             Available on
@@ -248,7 +248,7 @@ export default function SocialProof() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
-                className="flex items-center justify-center bg-background hover:bg-surface/60 transition-colors duration-500 py-8 md:py-10 px-8"
+                className="flex items-center justify-center bg-background hover:bg-surface/60 transition-colors duration-500 py-7 md:py-10 px-3 sm:px-6 md:px-8"
               >
                 <div className="text-white/80 hover:text-white transition-colors duration-500">
                   {logo.logo}
