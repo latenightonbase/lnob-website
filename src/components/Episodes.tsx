@@ -64,7 +64,7 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
       <div className="relative rounded-2xl border border-border/60 bg-surface/20 hover:bg-surface/40 hover:border-border transition-all duration-500 overflow-hidden">
         <div className="grid md:grid-cols-[1fr_1.1fr] gap-0">
           {/* Media */}
-          <div className="relative aspect-video md:aspect-auto md:min-h-[320px] overflow-hidden bg-black">
+          <div className="relative aspect-video self-center overflow-hidden bg-black">
             {playing ? (
               <iframe
                 src={`https://www.youtube.com/embed/${ep.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&color=white`}
@@ -86,7 +86,7 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
                   src={`https://i.ytimg.com/vi/${ep.videoId}/maxresdefault.jpg`}
                   alt=""
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
+                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
                   onError={(e) => {
                     const img = e.currentTarget;
                     if (!img.dataset.fallback) {

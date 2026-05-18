@@ -34,50 +34,32 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-24 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-3.5 group">
             <Image
               src="/images/logo.jpg"
               alt="Late Night on Base"
-              width={28}
-              height={28}
+              width={44}
+              height={44}
               className="rounded-full ring-1 ring-white/10"
             />
-            <span className="font-medium text-[13px] tracking-tight text-foreground/90 hidden sm:block">
+            <span className="font-semibold text-xl tracking-tight text-foreground/95 hidden sm:block">
               Late Night on Base
             </span>
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm text-muted hover:text-foreground transition-colors duration-200"
+                className="text-lg font-medium text-muted hover:text-foreground transition-colors duration-200"
               >
                 {link.label}
               </Link>
             ))}
-          </div>
-
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="#sponsors"
-              className="text-sm text-muted hover:text-foreground transition-colors"
-            >
-              Partner With Us
-            </Link>
-            <Link
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm bg-accent hover:bg-accent-bright text-white px-4 py-2 rounded-lg transition-colors duration-200"
-            >
-              Watch Live
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -121,25 +103,17 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
-            <div className="px-6 py-4 space-y-3">
+            <div className="px-6 py-5 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-sm text-muted hover:text-foreground transition-colors"
+                  className="block text-lg font-medium text-muted hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm bg-accent text-white px-4 py-2 rounded-lg text-center mt-4"
-              >
-                Watch Live
-              </Link>
             </div>
           </motion.div>
         )}
