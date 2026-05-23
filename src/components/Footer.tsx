@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
 
 const socialLinks = [
   {
@@ -44,11 +46,21 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t border-border py-16">
+    <motion.footer
+      id="contact"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      className="border-t border-border py-14"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-12">
+        <motion.div
+          variants={staggerContainer}
+          className="grid gap-10 md:grid-cols-[1.3fr_0.7fr_1fr]"
+        >
           {/* Brand */}
-          <div>
+          <motion.div variants={staggerItem}>
             <div className="flex items-center gap-2.5 mb-4">
               <Image
                 src="/images/logo.jpg"
@@ -63,10 +75,10 @@ export default function Footer() {
               Live conversations about the ideas, people, and technology shaping
               the future.
             </p>
-          </div>
+          </motion.div>
 
           {/* Links */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h4 className="text-sm font-medium mb-4">Navigate</h4>
             <ul className="space-y-2.5">
               {["Episodes", "About", "Sponsors"].map((label) => (
@@ -88,23 +100,25 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Connect */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h4 className="text-sm font-medium mb-4">Connect</h4>
             <div className="flex items-center gap-4 mb-4">
               {socialLinks.map((link) => (
-                <a
+                <motion.a
                   key={link.name}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted hover:text-foreground transition-colors"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="rounded-full border border-border bg-surface/25 p-2.5 text-muted transition-colors hover:text-foreground"
                   aria-label={link.name}
                 >
                   {link.icon}
-                </a>
+                </motion.a>
               ))}
             </div>
             <a
@@ -113,8 +127,8 @@ export default function Footer() {
             >
               bill@latenightonbase.com
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -127,6 +141,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

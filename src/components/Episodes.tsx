@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { fadeIn, fadeUp, staggerItem, viewportOnce } from "@/lib/motion";
 
 type Episode = {
   videoId: string;
@@ -55,16 +56,18 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay: index * 0.12 }}
+      variants={staggerItem}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      transition={{ delay: index * 0.08 }}
+      whileHover={{ y: -4 }}
       className="group"
     >
-      <div className="relative rounded-2xl border border-border/60 bg-surface/20 hover:bg-surface/40 hover:border-border transition-all duration-500 overflow-hidden">
-        <div className="grid md:grid-cols-[1fr_1.1fr] gap-0">
+      <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-surface/20 transition-all duration-500 hover:border-border hover:bg-surface/40 hover:shadow-[0_24px_100px_rgba(0,0,0,0.28)]">
+        <div className="grid gap-0 lg:grid-cols-[1.02fr_1fr]">
           {/* Media */}
-          <div className="relative aspect-video self-center overflow-hidden bg-black">
+          <div className="relative aspect-video self-stretch overflow-hidden bg-black lg:min-h-[360px]">
             {playing ? (
               <iframe
                 src={`https://www.youtube.com/embed/${ep.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&color=white`}
@@ -86,7 +89,7 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
                   src={`https://i.ytimg.com/vi/${ep.videoId}/maxresdefault.jpg`}
                   alt=""
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
                   onError={(e) => {
                     const img = e.currentTarget;
                     if (!img.dataset.fallback) {
@@ -105,7 +108,11 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
                   <div className="relative">
                     {/* Glow ring */}
                     <div className="absolute inset-0 rounded-full bg-accent/30 blur-2xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full border border-white/20 bg-black/30 backdrop-blur-md flex items-center justify-center group-hover:bg-accent/25 group-hover:border-accent/40 group-hover:scale-105 transition-all duration-500">
+                    <motion.div
+                      whileHover={{ scale: 1.08 }}
+                      whileTap={{ scale: 0.96 }}
+                      className="relative flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-black/30 backdrop-blur-md transition-all duration-500 group-hover:border-accent/40 group-hover:bg-accent/25 md:h-20 md:w-20"
+                    >
                       <svg
                         className="w-6 h-6 md:w-7 md:h-7 text-white ml-1 transition-colors duration-500"
                         fill="currentColor"
@@ -113,7 +120,7 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
                       >
                         <path d="M8 5v14l11-7z" />
                       </svg>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
 
@@ -128,18 +135,19 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
           </div>
 
           {/* Content */}
-          <div className="flex flex-col justify-center p-6 sm:p-8 md:p-12 lg:p-16">
+          <div className="flex flex-col justify-center p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14">
             {/* Tag */}
-            <div className="mb-5">
+            <div className="mb-5 flex flex-wrap items-center gap-3">
               <span
                 className={`text-[10px] uppercase tracking-[0.2em] font-semibold px-3 py-1 rounded-full border ${tagColors[ep.tag] || "text-muted border-border bg-surface/50"}`}
               >
                 {ep.tag}
               </span>
+              <span className="text-xs text-muted/70">{ep.date}</span>
             </div>
 
             {/* Title */}
-            <h3 className="text-2xl md:text-3xl lg:text-[2.5rem] font-extrabold tracking-tight leading-[1.1] text-foreground group-hover:text-white transition-colors duration-300">
+            <h3 className="text-2xl font-extrabold leading-[1.1] tracking-tight text-foreground transition-colors duration-300 group-hover:text-white md:text-3xl lg:text-[2.35rem]">
               {ep.title}
             </h3>
 
@@ -197,18 +205,18 @@ function EpisodeCard({ ep, index }: { ep: Episode; index: number }) {
 
 export default function Episodes() {
   return (
-    <section id="episodes" className="relative py-28 md:py-36">
+    <section id="episodes" className="relative overflow-hidden py-20 md:py-28">
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-accent/[0.015] rounded-full blur-[180px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mb-14 text-center md:mb-16"
         >
           <p className="text-[11px] text-accent/70 uppercase tracking-[0.25em] font-medium mb-4">
             Curated episodes
@@ -223,7 +231,7 @@ export default function Episodes() {
         </motion.div>
 
         {/* Episode cards — large editorial layout */}
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-7">
           {episodes.map((ep, i) => (
             <EpisodeCard key={ep.videoId} ep={ep} index={i} />
           ))}
@@ -231,11 +239,11 @@ export default function Episodes() {
 
         {/* View all */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mt-12 text-center"
         >
           <a
             href="https://youtube.com"

@@ -1,6 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  fadeUp,
+  scaleIn,
+  staggerContainer,
+  staggerItem,
+  viewportOnce,
+} from "@/lib/motion";
 
 const stats = [
   { value: "50K+", label: "Weekly Viewers" },
@@ -167,61 +174,70 @@ const partnerLogos: { name: string; logo: React.ReactNode }[] = [
 
 export default function SocialProof() {
   return (
-    <section className="relative py-24 md:py-32 border-t border-border">
+    <section className="relative overflow-hidden border-t border-border py-20 md:py-28">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-accent/[0.02] rounded-full blur-[150px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Stats row */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-24"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mb-16 grid grid-cols-2 gap-4 md:mb-20 md:grid-cols-4 md:gap-5"
         >
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            <motion.div
+              key={stat.label}
+              variants={staggerItem}
+              className="rounded-2xl border border-border/50 bg-surface/20 px-4 py-6 text-center"
+            >
+              <div className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
                 {stat.value}
               </div>
-              <div className="mt-2 text-sm text-muted/70 tracking-wide">
+              <div className="mt-2 text-sm tracking-wide text-muted/70">
                 {stat.label}
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
         {/* Distribution platforms */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-12 gap-y-5 sm:gap-y-6 mb-24 pb-24 border-b border-border/50"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mb-16 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 border-b border-border/50 pb-16 sm:gap-x-5 md:mb-20 md:pb-20"
         >
-          <span className="text-[12px] text-foreground/75 uppercase tracking-[0.22em] font-semibold">
+          <motion.span
+            variants={staggerItem}
+            className="w-full text-center text-[12px] font-semibold uppercase tracking-[0.22em] text-foreground/75 sm:w-auto"
+          >
             Available on
-          </span>
+          </motion.span>
           {platforms.map((platform) => (
-            <div
+            <motion.div
               key={platform.name}
-              className="flex items-center gap-2.5 text-foreground/80 hover:text-foreground transition-colors duration-300 cursor-pointer"
+              variants={staggerItem}
+              whileHover={{ y: -2 }}
+              className="flex cursor-pointer items-center gap-2.5 rounded-full border border-white/8 bg-surface/20 px-4 py-2 text-foreground/80 transition-colors duration-300 hover:border-border hover:bg-surface/45 hover:text-foreground"
             >
               {platform.icon}
-              <span className="text-[15px] font-medium tracking-tight">
+              <span className="text-[14px] font-medium tracking-tight">
                 {platform.name}
               </span>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
         {/* Previous Guests heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, delay: 0.1 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
           className="text-center"
         >
           <p className="text-[11px] text-accent uppercase tracking-[0.25em] font-medium mb-5">
@@ -234,21 +250,19 @@ export default function SocialProof() {
 
         {/* Logo strip — large, high-contrast, Claude.ai-inspired grid */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-16 md:mt-20"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mt-12 md:mt-16"
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-border/30 rounded-2xl overflow-hidden border border-border/40">
-            {partnerLogos.map((logo, i) => (
+            {partnerLogos.map((logo) => (
               <motion.div
                 key={logo.name}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
-                className="flex items-center justify-center bg-background hover:bg-surface/60 transition-colors duration-500 py-7 md:py-10 px-3 sm:px-6 md:px-8"
+                variants={scaleIn}
+                whileHover={{ y: -4 }}
+                className="flex items-center justify-center bg-background px-3 py-7 transition-colors duration-500 hover:bg-surface/60 sm:px-6 md:px-8 md:py-10"
               >
                 <div className="text-white/80 hover:text-white transition-colors duration-500">
                   {logo.logo}

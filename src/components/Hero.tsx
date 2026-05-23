@@ -2,101 +2,165 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { fadeUp, smoothEase, staggerContainer, staggerItem } from "@/lib/motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
-      {/* Background video */}
-      <div className="absolute inset-0">
+    <section className="relative isolate flex min-h-svh flex-col justify-center overflow-hidden py-12 lg:py-16">
+      {/* Ambient background */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        {/* Mobile background video */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
-          poster="/images/hero-poster.jpg"
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover lg:hidden"
         >
-          {/* <source src="/videos/hero-loop.mp4" type="video/mp4" /> */}
+          <source src="/lnob-vert.mp4" type="video/mp4" />
         </video>
+        <div className="absolute inset-0 bg-black/70 lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90 lg:hidden" />
 
-        {/* Cinematic gradients — keep the host visible, fade for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/30 to-transparent" />
-
-        {/* Subtle film grain */}
+        <div className="absolute -top-40 -left-40 hidden h-[480px] w-[480px] rounded-full bg-accent/10 blur-[150px] lg:block" />
+        <div className="absolute top-1/4 -right-32 hidden h-[520px] w-[520px] rounded-full bg-accent-bright/[0.08] blur-[170px] lg:block" />
+        <div
+          className="absolute inset-0 hidden opacity-[0.05] lg:block"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgb(255 255 255 / 0.6) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.6) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 55% 45%, black 0%, transparent 75%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 55% 45%, black 0%, transparent 75%)",
+          }}
+        />
         <div className="noise-overlay absolute inset-0" />
+        <div className="absolute inset-x-0 bottom-0 hidden h-32 bg-gradient-to-t from-background to-transparent lg:block" />
       </div>
 
-      {/* Soft directional glow — off to the side, not centered on the face */}
-      <div className="absolute -top-32 -right-32 w-[520px] h-[520px] bg-accent/8 rounded-full blur-[160px] pointer-events-none" />
-
-      {/* Content — bottom-left, editorial */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 lg:px-8 pb-24 lg:pb-32">
-        <div className="max-w-2xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[0.92]"
-          >
-            Late Night
-            <br />
-            <span className="text-accent">on Base</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 text-lg sm:text-xl text-muted max-w-xl leading-relaxed"
-          >
-            Breaking down what actually matters in AI, apps &amp; tech.
-          </motion.p>
-
+      <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14">
+          {/* Copy column */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-6"
           >
-            <Link
-              href="https://x.com/latenightonbase"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 bg-accent hover:bg-accent-bright text-white px-7 py-3.5 rounded-xl text-sm font-medium transition-all duration-300 glow-blue"
+
+
+            <motion.h1
+              variants={fadeUp}
+              className="text-[2.75rem] font-semibold leading-[0.95] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6rem]"
             >
-              <svg
-                className="w-[14px] h-[14px]"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+              Late Night
+              <br />
+              <span className="bg-gradient-to-br from-accent-bright via-accent to-accent bg-clip-text text-transparent">
+                on Base
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={staggerItem}
+              className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg md:text-xl"
+            >
+              Breaking down what actually matters in AI, apps &amp; tech.
+            </motion.p>
+
+            <motion.div
+              variants={staggerItem}
+              className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5"
+            >
+              <motion.div
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto"
               >
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-              Watch Live on X
-            </Link>
-            <Link
-              href="#sponsors"
-              className="inline-flex items-center gap-2 border border-border hover:border-muted text-foreground px-7 py-3.5 rounded-xl text-sm font-medium transition-all duration-300 bg-surface/20 backdrop-blur-sm"
-            >
-              Partner With Us
-            </Link>
+                <Link
+                  href="https://x.com/latenightonbase"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glow-blue inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-accent-bright sm:w-auto"
+                >
+                  <svg
+                    className="h-[14px] w-[14px]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                  Watch Live on X
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto"
+              >
+                <Link
+                  href="#sponsors"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/25 px-7 py-3.5 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:border-muted hover:bg-surface/45 sm:w-auto"
+                >
+                  Partner With Us
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* Video showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: smoothEase }}
+            className="hidden lg:col-span-6 lg:block "
+          >
+            <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-[680px] xl:max-w-[760px] ">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-accent/25 via-accent-bright/10 to-transparent blur-3xl"
+              />
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface/30 shadow-2xl shadow-black/50 ring-1 ring-white/5">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/images/hero-poster.jpg"
+                  className="aspect-[16/9] w-full object-cover"
+                >
+                  <source src="/lnob-vid.mp4" type="video/mp4" />
+                </video>
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/55 via-black/10 to-transparent"
+                />
+                
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator — kept minimal */}
+      {/* Scroll cue — desktop only */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        initial={{ opacity: 0, y: -6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.4 }}
+        className="pointer-events-none absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex"
       >
+        <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted">
+          Scroll
+        </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-          className="w-[18px] h-7 rounded-full border border-white/15 flex items-start justify-center pt-1.5"
+          className="flex h-7 w-[18px] items-start justify-center rounded-full border border-white/15 pt-1.5"
         >
-          <div className="w-[3px] h-1.5 rounded-full bg-white/40" />
+          <div className="h-1.5 w-[3px] rounded-full bg-white/40" />
         </motion.div>
       </motion.div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
 
 const tiers = [
   {
@@ -34,7 +35,7 @@ export default function Sponsors() {
   return (
     <section
       id="sponsors"
-      className="relative py-24 md:py-32 border-t border-border"
+      className="relative overflow-hidden border-t border-border py-20 md:py-28"
     >
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-accent/3 rounded-full blur-[150px] pointer-events-none" />
@@ -42,11 +43,11 @@ export default function Sponsors() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 max-w-2xl mx-auto"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mx-auto mb-12 max-w-2xl text-center md:mb-14"
         >
           <p className="text-xs text-accent uppercase tracking-widest font-medium mb-3">
             Partnerships
@@ -62,18 +63,22 @@ export default function Sponsors() {
         </motion.div>
 
         {/* Tiers */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {tiers.map((tier, i) => (
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2"
+        >
+          {tiers.map((tier) => (
             <motion.div
               key={tier.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`relative rounded-2xl p-8 border ${
+              variants={staggerItem}
+              whileHover={{ y: -5 }}
+              className={`relative flex h-full flex-col rounded-2xl border p-7 transition-colors duration-300 sm:p-8 ${
                 tier.highlight
-                  ? "border-accent/30 bg-accent/[0.03]"
-                  : "border-border bg-surface/30"
+                  ? "border-accent/35 bg-accent/[0.04] shadow-[0_24px_100px_rgba(59,130,246,0.08)]"
+                  : "border-border bg-surface/30 hover:bg-surface/45"
               }`}
             >
               {tier.highlight && (
@@ -84,15 +89,16 @@ export default function Sponsors() {
                 </div>
               )}
 
-              <h3 className="text-xl font-semibold mb-2">{tier.name}</h3>
-              <p className="text-sm text-muted mb-6 leading-relaxed">
+              <h3 className="mb-2 text-xl font-semibold">{tier.name}</h3>
+              <p className="mb-6 text-sm leading-relaxed text-muted">
                 {tier.description}
               </p>
 
-              <ul className="space-y-3 mb-8">
+              <motion.ul variants={staggerContainer} className="mb-8 flex-1 space-y-3">
                 {tier.features.map((feature) => (
-                  <li
+                  <motion.li
                     key={feature}
+                    variants={staggerItem}
                     className="flex items-start gap-3 text-sm text-muted"
                   >
                     <svg
@@ -109,12 +115,14 @@ export default function Sponsors() {
                       />
                     </svg>
                     {feature}
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
 
-              <a
+              <motion.a
                 href="mailto:bill@latenightonbase.com?subject=Sponsorship Inquiry"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 className={`inline-flex items-center justify-center w-full py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                   tier.highlight
                     ? "bg-accent hover:bg-accent-bright text-white"
@@ -122,10 +130,10 @@ export default function Sponsors() {
                 }`}
               >
                 Inquire Now
-              </a>
+              </motion.a>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
