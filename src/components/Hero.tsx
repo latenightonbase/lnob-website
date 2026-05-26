@@ -6,7 +6,7 @@ import { fadeUp, smoothEase, staggerContainer, staggerItem } from "@/lib/motion"
 
 export default function Hero() {
   return (
-    <section className="relative isolate flex min-h-svh flex-col justify-center overflow-hidden py-12 lg:py-16">
+    <section className="relative isolate flex min-h-svh flex-col justify-start overflow-hidden pt-24 pb-12 lg:justify-center lg:py-16">
       {/* Ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         {/* Mobile background video */}
@@ -20,8 +20,8 @@ export default function Hero() {
         >
           <source src="/lnob-vert.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/70 lg:hidden" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90 lg:hidden" />
+        {/* Subtle gradient: darker behind headline at top, fades so video stays visible below */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/10 lg:hidden" />
 
         <div className="absolute -top-40 -left-40 hidden h-[480px] w-[480px] rounded-full bg-accent/10 blur-[150px] lg:block" />
         <div className="absolute top-1/4 -right-32 hidden h-[520px] w-[520px] rounded-full bg-accent-bright/[0.08] blur-[170px] lg:block" />
