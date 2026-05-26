@@ -246,7 +246,7 @@ export default function Episodes() {
           className="mt-12 text-center"
         >
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@billthebullAI"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 text-sm text-muted hover:text-foreground transition-all duration-300 border border-border/60 hover:border-border px-8 py-3.5 rounded-xl bg-surface/20 hover:bg-surface/40"

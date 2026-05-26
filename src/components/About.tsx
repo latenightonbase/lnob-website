@@ -97,7 +97,7 @@ export default function About() {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@billthebullAI"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -2 }}
@@ -114,7 +114,7 @@ export default function About() {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/varunbajajlatenight/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -2 }}

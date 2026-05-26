@@ -38,6 +38,13 @@ export default function Hero() {
           >
 
 
+            <motion.p
+              variants={fadeUp}
+              className="mb-4 text-[11px] font-medium uppercase tracking-[0.25em] text-accent"
+            >
+              Live Monday–Thursday
+            </motion.p>
+
             <motion.h1
               variants={fadeUp}
               className="text-[3.5rem] font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl sm:font-semibold md:text-7xl lg:text-[5.25rem] xl:text-[6rem]"

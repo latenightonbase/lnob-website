@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clapperboard, Handshake, Info, Mail, type LucideIcon } from "lucide-react";
+import { Clapperboard, Handshake, Info, Mail, Mic, type LucideIcon } from "lucide-react";
 import { smoothEase, staggerContainer, staggerItem } from "@/lib/motion";
 
 type NavLink = {
@@ -25,6 +25,7 @@ export default function Navbar() {
   const navLinks: NavLink[] = [
     { label: "Episodes", href: "#episodes", icon: Clapperboard },
     { label: "About", href: "#about", icon: Info },
+    { label: "Guests", href: "#guests", icon: Mic },
     { label: "Sponsors", href: "#sponsors", icon: Handshake },
     { label: "Contact", href: "#contact", icon: Mail },
   ];
@@ -86,7 +87,7 @@ export default function Navbar() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="mx-auto grid max-w-md grid-cols-4 gap-1 rounded-2xl border border-white/10 bg-background/85 p-1.5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+          className="mx-auto grid max-w-md grid-cols-5 gap-1 rounded-2xl border border-white/10 bg-background/85 p-1.5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl"
         >
           {navLinks.map((link) => {
             const Icon = link.icon;
