@@ -56,23 +56,21 @@ export default function Hero() {
               Breaking down what actually matters in AI, apps &amp; tech.
             </motion.p>
 
-            {/* Mobile-only in-flow video — desktop has its own showcase column */}
+            {/* Mobile-only in-flow video — edge-to-edge horizontal strip */}
             <motion.div
               variants={staggerItem}
-              className="mt-8 lg:hidden"
+              className="mt-8 -mx-6 lg:hidden"
             >
-              <div className="relative mx-auto w-full max-w-[280px] overflow-hidden rounded-3xl border border-white/10 bg-surface/30 shadow-2xl shadow-black/50 ring-1 ring-white/5">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="aspect-[9/16] w-full object-cover"
-                >
-                  <source src="/lnob-vert.mp4" type="video/mp4" />
-                </video>
-              </div>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="aspect-video w-full object-cover"
+              >
+                <source src="/lnob-vid.mp4" type="video/mp4" />
+              </video>
             </motion.div>
 
             <motion.div
