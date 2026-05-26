@@ -9,20 +9,6 @@ export default function Hero() {
     <section className="relative isolate flex min-h-svh flex-col justify-start overflow-hidden pt-24 pb-12 lg:justify-center lg:py-16">
       {/* Ambient background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        {/* Mobile background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover lg:hidden"
-        >
-          <source src="/lnob-vert.mp4" type="video/mp4" />
-        </video>
-        {/* Subtle gradient: darker behind headline at top, fades so video stays visible below */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/10 lg:hidden" />
-
         <div className="absolute -top-40 -left-40 hidden h-[480px] w-[480px] rounded-full bg-accent/10 blur-[150px] lg:block" />
         <div className="absolute top-1/4 -right-32 hidden h-[520px] w-[520px] rounded-full bg-accent-bright/[0.08] blur-[170px] lg:block" />
         <div
@@ -54,7 +40,7 @@ export default function Hero() {
 
             <motion.h1
               variants={fadeUp}
-              className="text-[2.75rem] font-semibold leading-[0.95] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6rem]"
+              className="text-[3.5rem] font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl sm:font-semibold md:text-7xl lg:text-[5.25rem] xl:text-[6rem]"
             >
               Late Night
               <br />
@@ -65,10 +51,29 @@ export default function Hero() {
 
             <motion.p
               variants={staggerItem}
-              className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg md:text-xl"
+              className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-white sm:text-lg sm:font-normal sm:text-muted md:text-xl"
             >
               Breaking down what actually matters in AI, apps &amp; tech.
             </motion.p>
+
+            {/* Mobile-only in-flow video — desktop has its own showcase column */}
+            <motion.div
+              variants={staggerItem}
+              className="mt-8 lg:hidden"
+            >
+              <div className="relative mx-auto w-full max-w-[280px] overflow-hidden rounded-3xl border border-white/10 bg-surface/30 shadow-2xl shadow-black/50 ring-1 ring-white/5">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="aspect-[9/16] w-full object-cover"
+                >
+                  <source src="/lnob-vert.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </motion.div>
 
             <motion.div
               variants={staggerItem}
