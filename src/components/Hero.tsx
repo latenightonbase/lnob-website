@@ -38,12 +38,22 @@ export default function Hero() {
           >
 
 
-            <motion.p
+            <motion.div
               variants={fadeUp}
-              className="mb-4 text-[11px] font-medium uppercase tracking-[0.25em] text-accent"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 backdrop-blur-sm sm:gap-2.5 sm:px-3 sm:py-1.5"
             >
-              Live Monday–Thursday
-            </motion.p>
+              <span className="relative flex h-1.5 w-1.5">
+                <motion.span
+                  animate={{ scale: [1, 2.4, 1], opacity: [0.55, 0, 0.55] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inline-flex h-full w-full rounded-full bg-red-500"
+                />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500" />
+              </span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/85 sm:text-[11px] sm:tracking-[0.25em]">
+                Live Mon–Thu · 12PM PST
+              </span>
+            </motion.div>
 
             <motion.h1
               variants={fadeUp}
