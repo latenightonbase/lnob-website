@@ -72,17 +72,16 @@ export default function Footer() {
           <motion.div variants={staggerItem}>
             <div className="flex items-center gap-2.5 mb-4">
               <Image
-                src="/images/logo.jpg"
-                alt="Late Night on Base"
+                src="/images/logo.png"
+                alt="Late Night Onchain"
                 width={32}
                 height={32}
                 className="rounded-full"
               />
-              <span className="font-semibold text-sm">Late Night on Base</span>
+              <span className="font-semibold text-sm">Late Night Onchain</span>
             </div>
             <p className="text-sm text-muted leading-relaxed max-w-xs">
-              Live conversations about the ideas, people, and technology shaping
-              the future.
+              Where builders get distribution. I interview the top teams on Robinhood, Solana, Base, Avax and Beyond.
             </p>
           </motion.div>
 
@@ -147,7 +146,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} Late Night on Base. All rights
+            &copy; {new Date().getFullYear()} Late Night Onchain. All rights
             reserved.
           </p>
           <p className="text-xs text-muted/50">

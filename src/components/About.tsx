@@ -26,7 +26,7 @@ export default function About() {
             >
               <Image
                 src="/images/bill-portrait.jpg"
-                alt="Bill — Host of Late Night on Base"
+                alt="Bill — Host of Late Night Onchain"
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -61,15 +61,14 @@ export default function About() {
             >
               <p>
                 Builder, broadcaster, and student of what&apos;s next. Late
-                Night on Base is a live show dedicated to cutting through the
-                noise and surfacing the ideas, people, and technology that
-                actually matter.
+                Night Onchain is where builders get distribution — I interview
+                the top teams on Robinhood, Solana, Base, Avax and Beyond.
               </p>
               <p>
                 Every week, Bill sits down with founders, engineers, and
-                operators building at the frontier of AI, consumer apps, and
-                internet-native infrastructure — delivering real conversations
-                with zero fluff.
+                operators building at the frontier of onchain apps and
+                infrastructure — delivering real conversations with zero
+                fluff.
               </p>
               <p>
                 The mission is simple: make the most important conversations in

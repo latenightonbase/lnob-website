@@ -47,14 +47,14 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="group flex items-center gap-3">
               <Image
-                src="/images/logo.jpg"
-                alt="Late Night on Base"
+                src="/images/logo.png"
+                alt="Late Night Onchain"
                 width={42}
                 height={42}
                 className="rounded-full ring-1 ring-white/10 transition-transform duration-300 group-hover:scale-105"
               />
               <span className="hidden text-lg font-semibold tracking-tight text-foreground/95 sm:block">
-                Late Night on Base
+                Late Night Onchain
               </span>
             </Link>
 

@@ -13,20 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Late Night on Base — AI, Apps & Tech",
+  title: "Late Night Onchain — Where builders get distribution",
   description:
-    "Breaking down what actually matters in AI, apps & tech. Live conversations with the builders shaping technology.",
+    "I interview the top teams on Robinhood, Solana, Base, Avax and Beyond.",
   openGraph: {
-    title: "Late Night on Base",
+    title: "Late Night Onchain",
     description:
-      "Breaking down what actually matters in AI, apps & tech.",
+      "I interview the top teams on Robinhood, Solana, Base, Avax and Beyond.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Late Night on Base",
+    title: "Late Night Onchain",
     description:
-      "Breaking down what actually matters in AI, apps & tech.",
+      "I interview the top teams on Robinhood, Solana, Base, Avax and Beyond.",
   },
 };
 

@@ -28,10 +28,10 @@ export default function Guests() {
             Want to come on the show?
           </h2>
           <p className="mt-4 text-muted leading-relaxed">
-            Late Night on Base is a platform for founders and builders shipping
-            at the frontier of AI, apps, and onchain. We&apos;re currently
-            booked out roughly a month — drop a line if you&apos;d like to
-            join the waitlist.
+            Late Night Onchain is a platform for founders and builders shipping
+            at the frontier of onchain apps and infrastructure. We&apos;re
+            currently booked out roughly a month — drop a line if you&apos;d
+            like to join the waitlist.
           </p>
         </motion.div>
 

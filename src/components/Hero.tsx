@@ -62,7 +62,7 @@ export default function Hero() {
               Late Night
               <br />
               <span className="bg-gradient-to-br from-accent-bright via-accent to-accent bg-clip-text text-transparent">
-                on Base
+                Onchain
               </span>
             </motion.h1>
 
@@ -70,7 +70,7 @@ export default function Hero() {
               variants={staggerItem}
               className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-white sm:text-lg sm:font-normal sm:text-muted md:text-xl"
             >
-              Breaking down what actually matters in AI, apps &amp; tech.
+              Where builders get distribution. I interview the top teams on Robinhood, Solana, Base, Avax and Beyond.
             </motion.p>
 
             {/* Mobile-only in-flow video — edge-to-edge horizontal strip */}
