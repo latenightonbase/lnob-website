@@ -100,7 +100,7 @@ export default function Hero() {
                 className="w-full sm:w-auto"
               >
                 <Link
-                  href="https://x.com/latenightonbase"
+                  href="https://x.com/lateniteonchain"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glow-blue inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-accent-bright sm:w-auto"

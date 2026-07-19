@@ -79,7 +79,7 @@ export default function About() {
             {/* Social links */}
             <motion.div variants={staggerItem} className="mt-8 flex items-center gap-3">
               <motion.a
-                href="https://x.com/latenightonbase"
+                href="https://x.com/lateniteonchain"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -2 }}
